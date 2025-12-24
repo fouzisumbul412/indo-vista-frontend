@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['Outfit', 'sans-serif'],
-        body: ['DM Sans', 'sans-serif'],
+        heading: ['IBM Plex Serif', 'sans-serif'],
+        body: ['Lato', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -1,16 +1,17 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Ship, Plane, ThermometerSnowflake } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight, Ship, Plane, ThermometerSnowflake } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background with Parallax Effect */}
+      {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2070&auto=format&fit=crop')`,
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2070&auto=format&fit=crop')",
         }}
       >
         <div className="absolute inset-0 hero-gradient" />
@@ -19,7 +20,7 @@ export const HeroSection = () => {
       {/* Floating Elements */}
       <motion.div
         animate={{ y: [-10, 10, -10] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-1/4 right-[10%] hidden lg:block"
       >
         <div className="w-20 h-20 rounded-2xl bg-secondary/20 backdrop-blur-sm border border-secondary/30 flex items-center justify-center">
@@ -29,7 +30,7 @@ export const HeroSection = () => {
 
       <motion.div
         animate={{ y: [10, -10, 10] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         className="absolute top-1/3 right-[20%] hidden lg:block"
       >
         <div className="w-16 h-16 rounded-xl bg-accent/20 backdrop-blur-sm border border-accent/30 flex items-center justify-center">
@@ -39,7 +40,7 @@ export const HeroSection = () => {
 
       <motion.div
         animate={{ y: [-5, 15, -5] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute bottom-1/3 right-[15%] hidden lg:block"
       >
         <div className="w-14 h-14 rounded-lg bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 flex items-center justify-center">
@@ -48,25 +49,24 @@ export const HeroSection = () => {
       </motion.div>
 
       {/* Content */}
-      <div className="container-wide mx-auto px-4 md:px-6 relative z-10 pt-24">
-        <div className="max-w-3xl">
-          <motion.div
+      <div className="container-wide mx-auto px-4 md:px-6 relative z-10 pt-24 flex justify-center">
+        <div className="max-w-4xl w-full text-center">
+          <motion.span
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="inline-block px-4 py-2 rounded-full bg-secondary/20 text-secondary text-sm font-semibold mb-6 backdrop-blur-sm border border-secondary/30"
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-secondary/20 text-secondary text-sm font-semibold mb-6 backdrop-blur-sm border border-secondary/30">
-              Premium Export Solutions Since 2010
-            </span>
-          </motion.div>
+            Premium Export Solutions Since 2010
+          </motion.span>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-primary-foreground mb-6 leading-tight"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-heading font-bold text-primary-foreground mb-6 leading-tight"
           >
-            Global Cold Chain &{' '}
+            Global Cold Chain &{" "} <br />
             <span className="text-secondary">Food Export</span> Solutions
           </motion.h1>
 
@@ -74,24 +74,27 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed max-w-2xl"
+            className="text-lg md:text-xl text-primary-foreground/80 mb-10 leading-relaxed"
           >
-            Your trusted partner for importing and exporting frozen meat, seafood, and spices. 
-            Comprehensive sea, air, and road logistics with state-of-the-art temperature-controlled solutions.
+            Your trusted partner for importing and exporting frozen meat,
+            seafood, and spices. <br />Comprehensive sea, air, and road logistics
+            with temperature-controlled solutions.
           </motion.p>
 
+          {/* ✅ BUTTONS CENTERED */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full"
           >
             <Link to="/contact">
               <Button variant="hero" size="xl" className="group">
                 Request Quote
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
+
             <a href="#services">
               <Button variant="heroOutline" size="xl">
                 View Services
@@ -107,16 +110,18 @@ export const HeroSection = () => {
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
-              { value: '45+', label: 'Countries Served' },
-              { value: '500+', label: 'Active Clients' },
-              { value: '10K+', label: 'Shipments/Year' },
-              { value: '15+', label: 'Years Experience' },
+              { value: "45+", label: "Countries Served" },
+              { value: "500+", label: "Active Clients" },
+              { value: "10K+", label: "Shipments/Year" },
+              { value: "15+", label: "Years Experience" },
             ].map((stat, index) => (
-              <div key={index} className="text-center md:text-left">
-                <div className="text-3xl md:text-4xl font-heading font-bold text-secondary mb-1">
+              <div key={index}>
+                <div className="text-3xl md:text-4xl font-heading font-bold text-secondary">
                   {stat.value}
                 </div>
-                <div className="text-sm text-primary-foreground/70">{stat.label}</div>
+                <div className="text-sm text-primary-foreground/70">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </motion.div>
