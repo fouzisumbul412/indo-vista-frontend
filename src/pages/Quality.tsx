@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { SectionHeading } from '@/components/shared/SectionHeading';
+import { SourcingFlowSection } from '@/components/home/SourcingFlowSection';
 import { Button } from '@/components/ui/button';
 import { 
   Shield, ThermometerSnowflake, Package, FileText, CheckCircle, 
@@ -96,6 +97,9 @@ const Quality = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Sourcing Flow Section */}
+      <SourcingFlowSection />
 
       {/* Quality & Food Safety */}
       <section className="section-padding bg-background">
