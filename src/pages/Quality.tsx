@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { SectionHeading } from '@/components/shared/SectionHeading';
-import { SourcingFlowSection } from '@/components/home/SourcingFlowSection';
+import { SourcingFlowSection } from '@/components/SourcingFlowSection';
 import { Button } from '@/components/ui/button';
 import { 
   Shield, ThermometerSnowflake, Package, FileText, CheckCircle, 

@@ -33,24 +33,21 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-card/95 backdrop-blur-md shadow-medium py-3'
           : 'bg-transparent py-5'
-      }`}
+        }`}
     >
       <div className="container-wide mx-auto px-4 md:px-6">
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-primary-foreground">
-              <Ship className="w-5 h-5" />
-            </div>
-            <span className={`text-xl font-heading font-bold transition-colors ${
-              isScrolled ? 'text-foreground' : 'text-primary-foreground'
-            } group-hover:text-secondary`}>
-              Indo Vista
-            </span>
+            <img
+              src="/indovista-logo.png" 
+              alt="Indo Vista Logo"
+              className={`h-20 w-auto transition-all  drop-shadow-[0_0_12px_rgba(255,255,255,0.8)] roup-hover:drop-shadow-[0_0_16px_rgba(255,255,255,0.9) ${isScrolled ? 'opacity-100' : 'opacity-90'
+                } group-hover:opacity-100`}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -59,15 +56,13 @@ export const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors relative group ${
-                  isScrolled ? 'text-foreground' : 'text-primary-foreground/90'
-                } hover:text-secondary`}
+                className={`text-sm font-medium transition-colors relative group ${isScrolled ? 'text-foreground' : 'text-primary-foreground/90'
+                  } hover:text-secondary`}
               >
                 {link.label}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-300 ${
-                    location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-300 ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                 />
               </Link>
             ))}
@@ -85,9 +80,8 @@ export const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
-              isScrolled ? 'text-foreground' : 'text-primary-foreground'
-            }`}
+            className={`lg:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'text-foreground' : 'text-primary-foreground'
+              }`}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -109,11 +103,10 @@ export const Header = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`text-base font-medium py-2 transition-colors ${
-                      location.pathname === link.path
+                    className={`text-base font-medium py-2 transition-colors ${location.pathname === link.path
                         ? 'text-secondary'
                         : 'text-foreground hover:text-secondary'
-                    }`}
+                      }`}
                   >
                     {link.label}
                   </Link>

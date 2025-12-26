@@ -162,8 +162,8 @@ export const SourcingFlowSection = () => {
         </motion.div>
 
         {/* Sourcing Flow Steps */}
-        {/* <div className="relative">
-         
+        <div className="relative">
+          {/* Connecting Line */}
           <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-secondary via-accent to-primary transform -translate-x-1/2 z-0" />
 
           <div className="space-y-12 lg:space-y-0">
@@ -178,7 +178,7 @@ export const SourcingFlowSection = () => {
                   index % 2 === 1 ? 'lg:direction-rtl' : ''
                 } ${index !== sourcingSteps.length - 1 ? 'lg:pb-20' : ''}`}
               >
-              
+                {/* Step Number Circle */}
                 <div className="hidden lg:flex absolute left-1/2 top-8 transform -translate-x-1/2 z-10">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
@@ -188,7 +188,7 @@ export const SourcingFlowSection = () => {
                   </motion.div>
                 </div>
 
-               
+                {/* Content */}
                 <div className={`${index % 2 === 1 ? 'lg:order-2 lg:pl-16' : 'lg:pr-16 lg:text-right'}`}>
                   <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? 'lg:justify-end' : ''}`}>
                     <div className="lg:hidden w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
@@ -217,7 +217,7 @@ export const SourcingFlowSection = () => {
                   </div>
                 </div>
 
-               
+                {/* Image */}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
@@ -231,7 +231,7 @@ export const SourcingFlowSection = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
-                   
+                    {/* Hover Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                       <div className="flex items-center gap-2 text-primary-foreground">
                         <ArrowRight className="w-4 h-4" />
@@ -243,7 +243,7 @@ export const SourcingFlowSection = () => {
               </motion.div>
             ))}
           </div>
-        </div> */}
+        </div>
 
         {/* Bottom CTA */}
         <motion.div

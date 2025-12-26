@@ -26,10 +26,12 @@ export const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-secondary text-secondary-foreground">
-                <Ship className="w-5 h-5" />
-              </div>
-              <span className="text-xl font-heading font-bold">Indo Vista</span>
+              <img
+              src="/indovista-logo.png" 
+              alt="Indo Vista Logo"
+              className={`h-20 w-auto transition-all  drop-shadow-[0_0_12px_rgba(255,255,255,0.5)] roup-hover:drop-shadow-[0_0_16px_rgba(255,255,255,0.9) group-hover:opacity-100`}
+            />
+              
             </Link>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
               Your trusted partner for global cold chain logistics and premium food exports. 
