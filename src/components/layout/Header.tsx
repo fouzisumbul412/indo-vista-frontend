@@ -34,21 +34,30 @@ export const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-card/95 backdrop-blur-md shadow-medium py-3'
-          : 'bg-transparent py-5'
+        ? 'bg-card/95 backdrop-blur-md shadow-medium py-3'
+        : 'bg-transparent py-5'
         }`}
     >
       <div className="container-wide mx-auto px-4 md:px-6">
         <nav className="flex items-center justify-between">
           {/* Logo */}
+          {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
+            {/* Desktop Logo */}
             <img
-              src="/indovista-logo.png" 
+              src={isScrolled ? "/hq-indologo.png" : "/white-indo-logo.png"}
               alt="Indo Vista Logo"
-              className={`h-20 w-auto transition-all  drop-shadow-[0_0_12px_rgba(255,255,255,0.8)] roup-hover:drop-shadow-[0_0_16px_rgba(255,255,255,0.9) ${isScrolled ? 'opacity-100' : 'opacity-90'
-                } group-hover:opacity-100`}
+              className="hidden lg:block h-20 w-auto transition-all duration-300 drop-shadow-[0_0_12px_rgba(255,255,255,0.5)]"
+            />
+
+            {/* Mobile Logo */}
+            <img
+              src={isScrolled ? "/hq-indologo.png" : "/white-indo-logo.png"}
+              alt="Indo Vista Logo"
+              className="block lg:hidden h-16 w-auto transition-all duration-300 drop-shadow-[0_0_12px_rgba(255,255,255,0.5)]"
             />
           </Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
@@ -104,8 +113,8 @@ export const Header = () => {
                     key={link.path}
                     to={link.path}
                     className={`text-base font-medium py-2 transition-colors ${location.pathname === link.path
-                        ? 'text-secondary'
-                        : 'text-foreground hover:text-secondary'
+                      ? 'text-secondary'
+                      : 'text-foreground hover:text-secondary'
                       }`}
                   >
                     {link.label}

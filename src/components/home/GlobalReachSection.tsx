@@ -13,7 +13,28 @@ const ports = ['JNPT Mumbai', 'Nhava Sheva', 'Chennai Port', 'Mundra Port'];
 
 export const GlobalReachSection = () => {
   return (
-    <section className="section-padding section-gradient relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden">
+  {/* Background Image */}
+  {/* <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/images/map.mp4')" }}
+  /> */}
+
+  {/* Background Video */}
+<video
+  className="absolute inset-0 w-full h-full object-cover"
+  autoPlay
+  loop
+  muted
+  playsInline
+>
+  <source src="/images/map.mp4" type="video/mp4" />
+</video>
+
+
+  {/* Dark overlay for readability */}
+  <div className="absolute inset-0 bg-black/65" />
+
       {/* Decorative Globe */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-5">
         <Globe className="w-[600px] h-[600px]" />
@@ -24,6 +45,7 @@ export const GlobalReachSection = () => {
           badge="Global Network"
           title="Connecting India to the World"
           subtitle="Extensive network of shipping routes and partnerships across continents."
+          light={true}
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">

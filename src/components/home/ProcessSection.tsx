@@ -53,7 +53,7 @@ export const ProcessSection = () => {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="relative"
               >
-                <div className="bg-card rounded-2xl border border-border p-6 relative z-10 hover:shadow-elevated transition-shadow duration-300">
+                <div className="bg-primary rounded-2xl border border-border p-6 relative z-10 hover:shadow-elevated transition-shadow duration-300">
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
                       <step.icon className="w-6 h-6 text-secondary-foreground" />
@@ -62,16 +62,16 @@ export const ProcessSection = () => {
                       {step.step}
                     </span>
                   </div>
-                  <h3 className="text-xl font-heading font-semibold text-foreground mb-2">
+                  <h3 className="text-xl font-heading font-semibold text-muted mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted text-sm leading-relaxed">
                     {step.description}
                   </p>
                 </div>
 
                 {/* Connector Dot */}
-                <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-secondary border-4 border-background z-20" />
+                {/* <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-secondary border-4 border-background z-20" /> */}
               </motion.div>
             ))}
           </div>

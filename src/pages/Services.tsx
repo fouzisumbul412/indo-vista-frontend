@@ -14,6 +14,7 @@ const services = [
     icon: Ship,
     title: 'Sea Freight',
     description: 'Comprehensive ocean freight solutions for bulk and containerized cargo with global port coverage.',
+     image: '/images/sea.png',
     features: [
       'Full Container Load (FCL) services',
       'Less Container Load (LCL) options',
@@ -29,6 +30,7 @@ const services = [
     icon: Plane,
     title: 'Air Freight',
     description: 'Express and standard air cargo services for time-sensitive perishable shipments worldwide.',
+    image : '/images/air.png',
     features: [
       'Express delivery options',
       'Temperature-controlled air cargo',
@@ -44,6 +46,7 @@ const services = [
     icon: Truck,
     title: 'Road Transport',
     description: 'Refrigerated trucking and domestic logistics with reliable door-to-door service.',
+    image: '/images/road.png',
     features: [
       'Reefer truck fleet',
       'Temperature monitoring',
@@ -59,6 +62,7 @@ const services = [
     icon: FileText,
     title: 'Customs & Documentation',
     description: 'Complete customs clearance and export documentation support for hassle-free international trade.',
+    image: '/images/document.png',
     features: [
       'Export customs clearance',
       'Health certificate processing',
@@ -74,6 +78,7 @@ const services = [
     icon: ThermometerSnowflake,
     title: 'Cold Chain Solutions',
     description: 'End-to-end temperature-controlled logistics maintaining product integrity from origin to destination.',
+    image: '/images/cold.png',
     features: [
       'Cold storage facilities (-25°C to +25°C)',
       'Reefer container management',
@@ -185,9 +190,22 @@ const Services = () => {
                   </div>
                 </div>
                 <div className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                  <div className="rounded-2xl overflow-hidden shadow-elevated bg-muted h-[350px] flex items-center justify-center">
-                    <service.icon className="w-32 h-32 text-muted-foreground/20" />
-                  </div>
+                  <div className="relative rounded-2xl overflow-hidden shadow-elevated h-[350px] group">
+  <img
+    src={service.image}
+    alt={service.title}
+    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+  />
+
+  {/* Optional dark overlay */}
+  {/* <div className="absolute inset-0 bg-black/20" /> */}
+
+  {/* Optional floating icon badge */}
+  {/* <div className="absolute bottom-6 left-6 w-14 h-14 rounded-xl bg-secondary flex items-center justify-center shadow-lg">
+    <service.icon className="w-7 h-7 text-secondary-foreground" />
+  </div> */}
+</div>
+
                 </div>
               </motion.div>
             ))}

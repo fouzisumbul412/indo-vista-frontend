@@ -17,8 +17,9 @@ const Index = () => {
       <ProductsSection />
       <SourcingFlowSection />
       <ColdChainSection />
-      <GlobalReachSection />
       <ProcessSection />
+      <GlobalReachSection />
+      
       <FAQSection />
       <CTASection />
     </Layout>

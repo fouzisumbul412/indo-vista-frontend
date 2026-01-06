@@ -6,6 +6,10 @@ interface SectionHeadingProps {
   badge?: string;
   centered?: boolean;
   light?: boolean;
+   className?: string;
+  badgeClass?: string;
+  titleClass?: string;
+  subtitleClass?: string;
 }
 
 export const SectionHeading = ({
@@ -14,6 +18,10 @@ export const SectionHeading = ({
   badge,
   centered = true,
   light = false,
+   className = "",
+  badgeClass = "",
+  titleClass = "",
+  subtitleClass = "",
 }: SectionHeadingProps) => {
   return (
     <motion.div

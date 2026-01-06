@@ -27,7 +27,7 @@ export const Footer = () => {
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2">
               <img
-              src="/indovista-logo.png" 
+              src="/white-indo-logo.png" 
               alt="Indo Vista Logo"
               className={`h-20 w-auto transition-all  drop-shadow-[0_0_12px_rgba(255,255,255,0.5)] roup-hover:drop-shadow-[0_0_16px_rgba(255,255,255,0.9) group-hover:opacity-100`}
             />
