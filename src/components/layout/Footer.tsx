@@ -6,7 +6,7 @@ const quickLinks = [
   { path: '/services', label: 'Services' },
   { path: '/products', label: 'Products' },
   { path: '/quality', label: 'Quality' },
-  { path: '/gallery', label: 'Gallery' },
+  // { path: '/gallery', label: 'Gallery' },
   { path: '/contact', label: 'Contact' },
 ];
 
@@ -89,20 +89,21 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/80 text-sm">
-                  Indo Vista Export House,<br />
-                  Mumbai, Maharashtra, India
+                  3rd floor, Above Varun Bajaj showroom, ViP Hills , 100 feet Road<br />
+Madhapur, Hyderabad 500081
+                 
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
-                <a href="tel:+919876543210" className="text-primary-foreground/80 hover:text-secondary text-sm">
-                  +91-98765-43210
+                <a href="tel:+919494288997" className="text-primary-foreground/80 hover:text-secondary text-sm">
+                  9494288997 , 9440011704
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
-                <a href="mailto:info@indovista.com" className="text-primary-foreground/80 hover:text-secondary text-sm">
-                  info@indovista.com
+                <a href="mailto:n.vamsikiran4@gmail.com" className="text-primary-foreground/80 hover:text-secondary text-sm">
+                  n.vamsikiran4@gmail.com
                 </a>
               </li>
             </ul>
@@ -114,9 +115,11 @@ export const Footer = () => {
           <p className="text-primary-foreground/60 text-sm">
             © {new Date().getFullYear()} Indo Vista. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-sm text-primary-foreground/60">
-            <a href="#" className="hover:text-secondary transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-secondary transition-colors">Terms of Service</a>
+          <div className="flex items-center gap-1 text-sm text-primary-foreground/60">
+          Powered by <a href="https://outrightcreators.com/" className="hover:text-secondary transition-colors"> Outright Creators</a>
+
+            {/* <a href="#" className="hover:text-secondary transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-secondary transition-colors">Terms of Service</a> */}
           </div>
         </div>
       </div>

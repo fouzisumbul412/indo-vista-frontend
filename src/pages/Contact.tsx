@@ -42,31 +42,73 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.productCategory || !formData.productDetails) {
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!formData.name || !formData.email || !formData.productCategory || !formData.productDetails) {
+    toast({
+      title: 'Please fill required fields',
+      description: 'Name, email, product category, and product details are required.',
+      variant: 'destructive',
+    });
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  try {
+    // ✅ convert to form data (IMPORTANT FIX)
+const formDataToSend = new FormData();
+
+Object.entries(formData).forEach(([key, value]) => {
+  formDataToSend.append(key, value as string);
+});
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbw3CxT3xaTUR8_XR41AB2ebuDK9VzAAqLq4Tiuc6oKgtiFpDQ6naj4gwI0GoATEDRDD/exec",
+      {
+        method: "POST",
+        body: formDataToSend,
+      }
+    );
+
+    const result = await response.json();
+
+    if (result.success) {
+      setIsSubmitted(true);
+
       toast({
-        title: 'Please fill required fields',
-        description: 'Name, email, product category, and product details are required.',
-        variant: 'destructive',
+        title: 'Enquiry Submitted!',
+        description: 'Thank you for your interest. Our team will contact you within 24 hours.',
       });
-      return;
+
+      setFormData({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        productCategory: '',
+        productDetails: '',
+        quantity: '',
+        destination: '',
+        shipmentMode: '',
+        notes: '',
+      });
+
+    } else {
+      throw new Error("Submission failed");
     }
 
-    setIsSubmitting(true);
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+  } catch (error) {
+    console.error(error);
     toast({
-      title: 'Enquiry Submitted!',
-      description: 'Thank you for your interest. Our team will contact you within 24 hours.',
+      title: 'Error',
+      description: 'Something went wrong. Please try again.',
+      variant: 'destructive',
     });
-  };
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <Layout>
@@ -115,9 +157,8 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold mb-1">Office Address</h4>
                       <p className="text-muted-foreground text-sm">
-                        Indo Vista Export House<br />
-                        Andheri East, Mumbai<br />
-                        Maharashtra 400069, India
+                        3rd floor, Above Varun Bajaj showroom, ViP Hills , 100 feet Road<br />
+Madhapur, Hyderabad 500081
                       </p>
                     </div>
                   </div>
@@ -129,12 +170,12 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold mb-1">Phone</h4>
                       <p className="text-muted-foreground text-sm">
-                        <a href="tel:+919876543210" className="hover:text-secondary transition-colors">
-                          +91-98765-43210
+                        <a href="tel:+919494288997" className="hover:text-secondary transition-colors">
+                          +91-9494288997
                         </a>
                         <br />
-                        <a href="tel:+912226543210" className="hover:text-secondary transition-colors">
-                          +91-22-2654-3210
+                        <a href="tel:+919440011704" className="hover:text-secondary transition-colors">
+                          +91-9440011704
                         </a>
                       </p>
                     </div>
@@ -147,13 +188,13 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold mb-1">Email</h4>
                       <p className="text-muted-foreground text-sm">
-                        <a href="mailto:info@indovista.com" className="hover:text-secondary transition-colors">
-                          info@indovista.com
+                        <a href="mailto:n.vamsikiran4@gmail.com" className="hover:text-secondary transition-colors">
+                          n.vamsikiran4@gmail.com
                         </a>
-                        <br />
+                        {/* <br />
                         <a href="mailto:exports@indovista.com" className="hover:text-secondary transition-colors">
                           exports@indovista.com
-                        </a>
+                        </a> */}
                       </p>
                     </div>
                   </div>
@@ -174,12 +215,12 @@ const Contact = () => {
               </div>
 
               {/* Map Placeholder */}
-              <div className="rounded-xl overflow-hidden border border-border h-[250px] bg-muted flex items-center justify-center">
+              {/* <div className="rounded-xl overflow-hidden border border-border h-[250px] bg-muted flex items-center justify-center">
                 <div className="text-center text-muted-foreground">
                   <MapPin className="w-12 h-12 mx-auto mb-2 opacity-50" />
                   <p className="text-sm">Map placeholder</p>
                 </div>
-              </div>
+              </div> */}
             </motion.div>
 
             {/* Enquiry Form */}
@@ -344,22 +385,25 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button
-                      type="submit"
-                      variant="hero"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="w-full"
-                    >
-                      {isSubmitting ? (
-                        'Submitting...'
-                      ) : (
-                        <>
-                          Submit Enquiry
-                          <Send className="w-5 h-5 ml-2" />
-                        </>
-                      )}
-                    </Button>
+                   <Button
+  type="submit"
+  variant="hero"
+  size="lg"
+  disabled={isSubmitting}
+  className="w-full"
+>
+  {isSubmitting ? (
+    <div className="flex items-center justify-center gap-2">
+      <span className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></span>
+      Submitting...
+    </div>
+  ) : (
+    <>
+      Submit Enquiry
+      <Send className="w-5 h-5 ml-2" />
+    </>
+  )}
+</Button>
                   </form>
                 )}
               </div>
